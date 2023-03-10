@@ -1,0 +1,45 @@
+
+div.container{
+  display: flex;
+  min-height: 100px;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 2px 0.1px 5px;
+  margin-bottom: 40px;
+}
+
+.item{
+  padding-top: 10px;
+}
+
+div > img {
+  width: 100px;
+  height: 100px;
+
+}
+
+div.nav {
+  display: flex;
+  gap: 10px;
+}
+
+div.nav div{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: larger;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+div.nav div:hover{
+  color: rgb(209, 209, 209);
+  transition: .3s;
+}
+
+@media screen and (max-width: 640px) {
+  div.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
