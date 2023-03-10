@@ -21,6 +21,7 @@ div > img {
 div.nav {
   display: flex;
   gap: 10px;
+  cursor:pointer;
 }
 
 div.nav div{
@@ -37,6 +38,7 @@ div.nav div:hover{
 }
 
 @media screen and (max-width: 640px) {
+
   div.nav {
     display: flex;
     flex-direction: column;
