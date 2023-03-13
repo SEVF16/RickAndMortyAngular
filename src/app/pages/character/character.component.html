@@ -1,1 +1,55 @@
-<p>character works!</p>
+<!-- <div class="container">
+  <div class="card" *ngFor="let personaje of arrPj">
+    <div class="card-imagen">
+      <img [src]="personaje.image" alt="" class="thumb">
+    </div>
+    <div class="card-body">
+      <h2></h2>
+      <p></p>
+    </div>
+    <div class="card-footer">
+      <div class="item"></div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container" >
+  <!-- Normal Demo-->
+  <div class="post-module" *ngFor="let personaje of arrPj">
+    <div class="demo-title">
+      {{personaje.name}}
+    </div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <img [src]="personaje.image"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">{{personaje.species}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="container" *ngFor="let personaje of arrPj">
+  <div class="post-module">
+    <div class="demo-title">
+      {{personaje.name}}
+    </div>
+     Thumbnail-->
+    <!-- <div class="thumbnail">
+      <div class="date">
+      </div><img [src]="personaje.image"/>
+    </div>
+     Post Content
+    <div class="post-content">
+      <div class="category">{{personaje.species}}</div>
+    </div>
+  </div>
+</div> -->
+
