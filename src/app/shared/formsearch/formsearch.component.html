@@ -1,4 +1,4 @@
 <div class="search">
-  <input type="search" placeholder="Buscar">
+  <input #inputSearch type="search" placeholder="Buscar" (keyup)="onSearch(inputSearch.value)">
   <button>Buscar</button>
 </div>

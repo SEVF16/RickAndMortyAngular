@@ -22,8 +22,8 @@ export class CharacterServiceService {
 
   }
 
-  getCharacterFilter(): Promise <any>{
-    return firstValueFrom(this.htpp.get<any>(`${this.url}?status=dead`))
+  getCharacterFilter(query?: string): Promise <any>{
+    return firstValueFrom(this.htpp.get<any>(`${this.url}?name=${query}`))
 
   }
 

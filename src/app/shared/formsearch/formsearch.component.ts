@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formsearch',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  onSearch(value: string) {
+    console.log(value);
+    if(value && value.length > 3){
+      this.router.navigate(['home'], {
+        queryParams:{q:value}
+      })
+    }
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 
 @Component({
@@ -14,11 +14,13 @@ export class CharacterComponent implements OnInit {
   numPage: number;
   status: string = '';
   id: number | null = null ;
+  query: string;
   constructor(private pjService: CharacterServiceService,
-    private router: Router) {
+    private router: Router, private actRouter: ActivatedRoute) {
       this.pjR = [];
       this.currentPage = 1;
       this.numPage = 0;
+      this.query = '';
      }
 
   async ngAfterViewInit() {
@@ -34,7 +36,13 @@ export class CharacterComponent implements OnInit {
     })
   }
 
+// private getCharactersByQuery(): void{
 
+//   this.actRouter.queryParams.pipe(
+//     take(1)).subscribe((params: ParamMap) => {
+//       this.query = params['q'];
+//     })
+// }
 
 async onStatus($event?: any, ){
   this.status = $event.target.value
