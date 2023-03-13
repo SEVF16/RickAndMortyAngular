@@ -9,6 +9,7 @@ import { CharacterComponent } from './pages/character/character.component';
 import { DetailCharacterComponent } from './pages/detail-character/detail-character.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
+import { FormsearchComponent } from './shared/formsearch/formsearch.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EpisodesComponent } from './pages/episodes/episodes.component';
     CharacterComponent,
     DetailCharacterComponent,
     LocationsComponent,
-    EpisodesComponent
+    EpisodesComponent,
+    FormsearchComponent,
   ],
   imports: [
     BrowserModule,

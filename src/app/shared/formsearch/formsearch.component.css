@@ -1,0 +1,25 @@
+div.search{
+  display: flex;
+  margin: auto 0;
+  height: 35px;
+  line-height: 35px;
+}
+div.search input {
+  border: none;
+  outline: none;
+  background: #fff;
+  height: 100%;
+  margin-right: 5px;
+  padding: 0, 10px;
+  font-size: 20px;
+  width: 350px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.175);
+}
+div.search button{
+  color:black;
+  font-size: 20px;
+  height: 100%;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+}

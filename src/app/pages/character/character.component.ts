@@ -25,13 +25,13 @@ export class CharacterComponent implements OnInit {
     await this.pjService.getCharacter().then(response => {
       this.arrPj = response['results']
       this.numPage = response['info']['pages']
-
-      console.log(this.arrPj);
      });
 
   }
-  ngOnInit(): void {
-
+  async ngOnInit() {
+    await this.pjService.getCharacterFilter().then(response => {
+      console.log(response['results']);
+    })
   }
 
 

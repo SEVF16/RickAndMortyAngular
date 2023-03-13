@@ -22,6 +22,11 @@ export class CharacterServiceService {
 
   }
 
+  getCharacterFilter(): Promise <any>{
+    return firstValueFrom(this.htpp.get<any>(`${this.url}?status=dead`))
+
+  }
+
   getByStatus(pStatus?: string , pPage: number = 1 ): Promise<any>{
     if (pStatus === 'status' || pStatus === '') {
       return this.getCharacter(pPage)
