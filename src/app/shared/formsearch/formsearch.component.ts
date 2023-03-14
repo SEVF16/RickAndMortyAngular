@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { CharacterServiceService } from 'src/app/services/character-service.service';
 
 @Component({
   selector: 'app-formsearch',
@@ -8,17 +9,24 @@ import { Router } from '@angular/router';
 })
 export class FormsearchComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: CharacterServiceService) { }
 
   ngOnInit(): void {
+
+
   }
 
   onSearch(value: string) {
-    console.log(value);
-    if(value && value.length > 3){
-      this.router.navigate(['home'], {
-        queryParams:{q:value}
-      })
+    //console.log(value);
+
+    let navigationExtr: NavigationExtras = {
+      queryParams:{q : value}
+    }
+    if(value && value.length > 0){
+      this.router.navigate(['/home'], navigationExtr)
+
+    }else{
+      this.router.navigate(['/home'])
     }
   }
 }
