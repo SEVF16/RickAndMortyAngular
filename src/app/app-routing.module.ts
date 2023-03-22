@@ -12,7 +12,7 @@ const routes: Routes = [
     redirectTo: 'home'
   },
   {
-    path: 'home',
+    path: 'characters',
     component: CharacterComponent
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: EpisodesComponent
   },
   {
-    path: 'characters/:id',
+    path: 'character/:id',
     component: DetailCharacterComponent
   }
 ];

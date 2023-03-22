@@ -10,6 +10,7 @@ import { DetailCharacterComponent } from './pages/detail-character/detail-charac
 import { LocationsComponent } from './pages/locations/locations.component';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { FormsearchComponent } from './shared/formsearch/formsearch.component';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsearchComponent } from './shared/formsearch/formsearch.component';
     LocationsComponent,
     EpisodesComponent,
     FormsearchComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

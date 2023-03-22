@@ -1,1 +1,20 @@
-<p>detail-character works!</p>
+<div class="container" >
+  <!-- Normal Demo-->
+  <div class="post-module" >
+    <div class="demo-title">
+      {{character$}}
+    </div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <img [src]="character$"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">{{character$}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+

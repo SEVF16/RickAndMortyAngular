@@ -23,10 +23,10 @@ export class FormsearchComponent implements OnInit {
       queryParams:{q : value}
     }
     if(value && value.length > 0){
-      this.router.navigate(['/home'], navigationExtr)
+      this.router.navigate(['/characters'], navigationExtr)
 
     }else{
-      this.router.navigate(['/home'])
+      this.router.navigate(['/characters'])
     }
   }
 }

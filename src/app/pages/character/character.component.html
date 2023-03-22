@@ -1,18 +1,13 @@
-<!-- <div class="container">
-  <div class="card" *ngFor="let personaje of arrPj">
-    <div class="card-imagen">
-      <img [src]="personaje.image" alt="" class="thumb">
-    </div>
-    <div class="card-body">
-      <h2></h2>
-      <p></p>
-    </div>
-    <div class="card-footer">
-      <div class="item"></div>
-    </div>
-  </div>
-</div> -->
+<app-pagination></app-pagination>
 
+<h1>Lista de paginas</h1>
+<h3>
+    Páginas: {{pageNumber}}/{{currentPage}}
+</h3>
+<div class="btn">
+    <button class="btn btn-primary m-2" (click)="changePage(false)" [disabled]='currentPage === 1' >Anterior</button>
+    <button class="btn btn-primary" (click)="changePage(true)"  [disabled]='currentPage === pageNumber'>Siguiente</button>
+</div>
 <div class="container" >
   <!-- Normal Demo-->
   <div class="post-module" *ngFor="let personaje of arrPj">
@@ -22,34 +17,15 @@
     <!-- Post-->
     <div class="post-module">
       <!-- Thumbnail-->
-      <div class="thumbnail">
-        <img [src]="personaje.image"/>
+      <div class="thumbnail"  (click)="viewDetail(personaje.id)" >
+        <img  [src]="personaje.image"/>
+
       </div>
       <!-- Post Content-->
       <div class="post-content">
         <div class="category">{{personaje.species}}</div>
+
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-<!-- <div class="container" *ngFor="let personaje of arrPj">
-  <div class="post-module">
-    <div class="demo-title">
-      {{personaje.name}}
-    </div>
-     Thumbnail-->
-    <!-- <div class="thumbnail">
-      <div class="date">
-      </div><img [src]="personaje.image"/>
-    </div>
-     Post Content
-    <div class="post-content">
-      <div class="category">{{personaje.species}}</div>
-    </div>
-  </div>
-</div> -->
-
