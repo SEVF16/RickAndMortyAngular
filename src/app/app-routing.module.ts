@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CharacterComponent } from './pages/character/character.component';
-import { DetailCharacterComponent } from './pages/detail-character/detail-character.component';
+import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacter.component';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 
@@ -24,9 +24,10 @@ const routes: Routes = [
     component: EpisodesComponent
   },
   {
-    path: 'character/:id',
-    component: DetailCharacterComponent
-  }
+    path: 'detailCharacter/:id',
+    component: DetailcharacterComponent
+  },
+
 ];
 
 @NgModule({

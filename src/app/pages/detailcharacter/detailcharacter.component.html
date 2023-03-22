@@ -1,0 +1,11 @@
+ <section>
+    <div data-pj-detail *ngFor="let pj of arrPj">
+        <div class='img'>
+          <img [src]="pj.image" />
+        </div>
+      <div class="product-details">
+        <h2>{{pj.name}}</h2>
+        <p>{{pj.species}}</p>
+      </div>
+    </div>
+  </section>

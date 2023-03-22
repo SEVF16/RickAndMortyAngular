@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
+import { ActivatedRoute, ChildActivationEnd, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
-import { filter, map, take, withLatestFrom} from 'rxjs';
+import { filter,} from 'rxjs';
 import { Character } from 'src/app/models/character.model';
+import { Filter } from 'src/app/models/filter.interface';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -12,14 +13,19 @@ export class CharacterComponent implements OnInit{
   arrPj: Character[] = [];
   pjR: any[] = [];
   currentPage: number = 1;
-
-  status: string = '';
+  filterapi: {
+    name?: '',
+    status?: '',
+  species?: '',
+  gender?: '',
+  } = {};
+  status: any = [];
   id: number | null = null ;
   query: string;
   pages: [] = [];
   pageNumber:any;
   constructor(private pjService: CharacterServiceService,
-    private router: Router, private actRouter: ActivatedRoute) {
+    private router: Router, private actRouter: ActivatedRoute,) {
 
       this.query = '';
       this.urlChanged();
@@ -42,15 +48,15 @@ private urlChanged(): void{
     filter((event) => event instanceof NavigationEnd)).subscribe(
       () => {
         this.arrPj=[];
-      this.currentPage
-        this.getCharactersByQuery()
+        this.currentPage;
+        this.getCharactersByQuery();
       }
     )
 }
 private getCharactersByQuery(): void{
   this.actRouter.queryParams.pipe().subscribe((params : Params) =>{
     this.query = params['q'];
-    this.currentPage = this.currentPage
+    this.currentPage = this.currentPage;
     this.getDataService();
   });
 
@@ -59,19 +65,12 @@ private getCharactersByQuery(): void{
 private getDataService(pPage?: number): void{
 
 
-  this.pjService.getCharacter(this.query,this.currentPage).subscribe((response: any) => {
+  this.pjService.getCharacter(this.query,this.filterapi,this.currentPage).subscribe((response: any) => {
 
-    this.arrPj = response.results
-    this.pageNumber = response.info['pages']
-      //this.currentPage = page;
+    this.arrPj = response.results;
+    this.pageNumber = response.info['pages'];
+
     });
-    // if(res?.results?.length){
-    //   const{info, results} = res;
-    //   this.arrPj = [...this.arrPj, ...results];
-    //   this.pageNumber = [info.pages]
-    // }else{
-    //   this.arrPj = []
-    // }})
   }
 
 changePage(siguiente: boolean) {
@@ -86,8 +85,18 @@ changePage(siguiente: boolean) {
   }
 
   viewDetail(pId: number): void {
-    console.log(pId);
-    this.router.navigate(['/character/',pId]);
+    this.router.navigate(['/detailCharacter/',pId]);
+  }
+
+  onStatus($event?: any, ){
+    let filter = $event.target.name
+    this.status = $event.target.value;
+    if (filter === 'gender') {
+      this.filterapi.gender = $event.target.value;
+    }if (filter === 'Status') {
+      this.filterapi.status = $event.target.value;
+    }
+    this.getDataService();
   }
 }
 

@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { CharacterComponent } from './pages/character/character.component';
-import { DetailCharacterComponent } from './pages/detail-character/detail-character.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { FormsearchComponent } from './shared/formsearch/formsearch.component';
-import { PaginationComponent } from './shared/pagination/pagination.component';
+import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacter.component';
+import { SelectComponent } from './shared/select/select.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
     HeaderComponent,
     MainComponent,
     CharacterComponent,
-    DetailCharacterComponent,
     LocationsComponent,
     EpisodesComponent,
     FormsearchComponent,
-    PaginationComponent,
+    DetailcharacterComponent,
+    SelectComponent,
   ],
   imports: [
     BrowserModule,
