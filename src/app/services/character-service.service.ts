@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable} from 'rxjs';
+import { map, Observable} from 'rxjs';
 import { Character } from '../models/character.model';
+import { Filter } from '../models/filter.interface';
 
 
 
@@ -11,6 +12,7 @@ import { Character } from '../models/character.model';
 export class CharacterServiceService {
   url: string;
   arrpj: Character[] = [];
+
   constructor(private htpp: HttpClient) {
     this.arrpj = []
 
@@ -31,6 +33,8 @@ export class CharacterServiceService {
       urlBase+= `&status=${Filter.status}`
     }if(Filter.gender){
       urlBase+= `&gender=${Filter.gender}`
+    }if(Filter.species){
+      urlBase+= `&species=${Filter.species}`
     }
 
     return this.htpp.get<Character[]>(urlBase)
@@ -44,7 +48,14 @@ export class CharacterServiceService {
   }
 
 
+  getFilters(): Observable<any> {
+    return this.htpp
+      .get('https://rickandmortyapi.com/api/character')
 
 
+  }
 }
+
+
+
 

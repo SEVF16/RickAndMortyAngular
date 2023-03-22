@@ -39,6 +39,8 @@ export class CharacterComponent implements OnInit{
   async ngOnInit() {
     this.getDataService();
 
+
+
   }
 
 
@@ -95,6 +97,8 @@ changePage(siguiente: boolean) {
       this.filterapi.gender = $event.target.value;
     }if (filter === 'Status') {
       this.filterapi.status = $event.target.value;
+    }if (filter === 'species') {
+      this.filterapi.species = $event.target.value;
     }
     this.getDataService();
   }
