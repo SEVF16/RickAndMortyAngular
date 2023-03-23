@@ -57,7 +57,7 @@ private urlChanged(): void{
 }
 private getCharactersByQuery(): void{
   this.actRouter.queryParams.pipe().subscribe((params : Params) =>{
-    this.query = params['q'];
+    this.filterapi.name = params['q'];
     this.currentPage = this.currentPage;
     this.getDataService();
   });
@@ -66,11 +66,13 @@ private getCharactersByQuery(): void{
 
 private getDataService(pPage?: number): void{
 
-
-  this.pjService.getCharacter(this.query,this.filterapi,this.currentPage).subscribe((response: any) => {
+  console.log(this.pageNumber);
+  this.pjService.getCharacter(this.filterapi,this.currentPage).subscribe((response: any) => {
 
     this.arrPj = response.results;
     this.pageNumber = response.info['pages'];
+
+
 
     });
   }
@@ -105,18 +107,6 @@ changePage(siguiente: boolean) {
 }
 
 
-
-//   //console.log(this.pjService.getCharacter(this.query));
-//   return this.pjService.getCharacter(this.query);
-// }
-
-// private async getCharacter(): Promise<any>{
-//   return await this.pjService.getCharacter().then(response => {
-//     this.arrPj = response['results']
-//     this.numPage = response['info']['pages']
-//    });
-//   //console.log(this.arrPj);
-// }
 
 
 

@@ -11,6 +11,7 @@ import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { FormsearchComponent } from './shared/formsearch/formsearch.component';
 import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacter.component';
 import { SelectComponent } from './shared/select/select.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SelectComponent } from './shared/select/select.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

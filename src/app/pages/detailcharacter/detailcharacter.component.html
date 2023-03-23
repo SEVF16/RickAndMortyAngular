@@ -6,6 +6,16 @@
       <div class="product-details">
         <h2>{{pj.name}}</h2>
         <p>{{pj.species}}</p>
+        <p>
+          {{pj.location['name']}}
+        </p>
+        <div class="flexy" *ngFor="let episode of pj.episode">
+
+          <fa-icon [icon]="tv"></fa-icon>{{episode.slice(-2)}}
+
+        </div>
       </div>
+
     </div>
-  </section>
+
+</section>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import { Character } from '../models/character.model';
-import { Filter } from '../models/filter.interface';
 
 
 
@@ -21,14 +20,15 @@ export class CharacterServiceService {
 
 
 
-  getCharacter(q = '', Filter: {
+  getCharacter(Filter: {
     name?: string;
     status?: string;
     species?: string;
     gender?: string;}, pPage = 1 ): Observable<Character[]>{
+
     let urlBase = `https://rickandmortyapi.com/api/character?page=${pPage}`
-    if (q) {
-      urlBase+= `&name=${q}`
+    if (Filter.name) {
+      urlBase+= `&name=${Filter.name}`
     }if(Filter.status){
       urlBase+= `&status=${Filter.status}`
     }if(Filter.gender){
