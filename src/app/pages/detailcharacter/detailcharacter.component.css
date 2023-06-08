@@ -23,7 +23,7 @@ section {
 .flexy {
   display: flex;
   display: inline;
-  margin: 50px;
+
 
 }
 
@@ -52,3 +52,19 @@ img{
   padding-left: 20px;
 
 }
+
+.icon-container {
+  position: relative;
+  display: inline-flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+
+.icon-container span {
+  position: absolute;
+
+  font-size: 12px;
+
+}
+
