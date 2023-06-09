@@ -12,6 +12,7 @@ import { FormsearchComponent } from './shared/formsearch/formsearch.component';
 import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacter.component';
 import { SelectComponent } from './shared/select/select.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UrlValueNumberPipe } from './pipes/url-value-number.pipe';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsearchComponent,
     DetailcharacterComponent,
     SelectComponent,
+    UrlValueNumberPipe,
   ],
   imports: [
     BrowserModule,

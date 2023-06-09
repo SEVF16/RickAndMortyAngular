@@ -66,7 +66,7 @@ private getCharactersByQuery(): void{
 
 private getDataService(pPage?: number): void{
 
-  console.log(this.pageNumber);
+
   this.pjService.getCharacter(this.filterapi,this.currentPage).subscribe((response: any) => {
 
     this.arrPj = response.results;

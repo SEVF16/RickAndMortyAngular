@@ -10,9 +10,9 @@
           {{pj.location['name']}}
         </p>
         <div class="flexy" *ngFor="let episode of pj.episode">
-          <div class="icon-container">
-            <fa-icon [icon]="tv"></fa-icon>
-            <span>{{ episode.slice(-2) }}</span>
+          <div class="icon-container" (click)="episodeData(episode.slice(-2))">
+            <fa-icon [icon]="tv" class="icon-size" ></fa-icon>
+            <span>{{ episode | urlValueNumber }}</span>
           </div>
         </div>
 

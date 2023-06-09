@@ -58,13 +58,18 @@ img{
   display: inline-flex;
   margin: 10px;
   justify-content: center;
+  cursor: pointer;
+
 }
 
+.icon-size {
+  font-size: 18px;
+   /* Ajusta el tamaño del icono según tus necesidades */
+}
 
 .icon-container span {
   position: absolute;
-
   font-size: 12px;
-
+  margin: 1px;
 }
 

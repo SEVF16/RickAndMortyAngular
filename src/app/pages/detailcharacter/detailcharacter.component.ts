@@ -10,24 +10,41 @@ import {faTv} from '@fortawesome/free-solid-svg-icons'
 })
 export class DetailcharacterComponent implements OnInit {
   arrPj: Character[] = []
-  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute) { }
-  id: any;
+  id: number ;
   tv = faTv;
-  ngOnInit(): void {
+  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute) {
 
+    this.id = 0;
+
+   }
+
+  ngOnInit(): void {
+    this.getParam()
+    this.getDetailPj()
+
+  }
+
+  private getDetailPj(): void{
+    this.pjService.getCharacterId(this.id).subscribe((response: any) =>{
+
+      this.arrPj.push(response)
+
+    })
+  }
+
+  private getParam(): void{
     this.activateRoute.paramMap.subscribe( (paramMap:any) =>
     {
       const {params} = paramMap;
       this.id = params.id;
     });
+  }
 
-
-    this.pjService.getCharacterId(this.id).subscribe((response: any) =>{
-
-      this.arrPj.push(response)
-      console.log(this.arrPj);
-    })
-
+  protected episodeData(id:string): void{
+    const parts = id.split('/');
+    const lastPart = parts[parts.length - 1];
+    //return lastPart.replace('/', '|');console.log(id);
+    console.log(lastPart);
   }
 
 }
