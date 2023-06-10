@@ -9,11 +9,7 @@ import { CharacterServiceService } from 'src/app/services/character-service.serv
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
-  filters: Filter = {
-    status: [],
-    species: [],
-    gender: [],
-  };
+  filters: Filter = {};
   constructor(private pjService: CharacterServiceService) { }
 
   ngOnInit(): void {
@@ -21,9 +17,9 @@ export class SelectComponent implements OnInit {
     this.pjService.getFilters().pipe(
       map((response: any) => {
         // Obtener valores únicos de status, species y gender
-        const statusValues = [...new Set(response.results.map((character: any) => character.status))];
-        const speciesValues = [...new Set(response.results.map((character: any) => character.species))];
-        const genderValues = [...new Set(response.results.map((character: any) => character.gender))];
+        const statusValues = ['All', ...new Set(response.results.map((character: any) => character.status))];
+        const speciesValues = ['All', ...new Set(response.results.map((character: any) => character.species))];
+        const genderValues = ['All', ...new Set(response.results.map((character: any) => character.gender))];
 
         // Asignar valores a la propiedad filters
         this.filters.status = statusValues;

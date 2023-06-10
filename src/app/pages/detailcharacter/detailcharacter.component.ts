@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Character } from 'src/app/models/character.model';
+import { Character } from 'src/app/models/character.interface';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import {faTv} from '@fortawesome/free-solid-svg-icons'
 @Component({
@@ -27,7 +27,7 @@ export class DetailcharacterComponent implements OnInit {
   private getDetailPj(): void{
     this.pjService.getCharacterId(this.id).subscribe((response: any) =>{
 
-      this.arrPj.push(response)
+      this.arrPj = [response];
 
     })
   }

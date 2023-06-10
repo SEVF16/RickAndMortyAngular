@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ChildActivationEnd, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import { filter,} from 'rxjs';
-import { Character } from 'src/app/models/character.model';
+import { Character } from 'src/app/models/character.interface';
 import { Filter } from 'src/app/models/filter.interface';
 @Component({
   selector: 'app-character',
@@ -32,10 +32,6 @@ export class CharacterComponent implements OnInit{
      }
 
 
-  async ngAfterViewInit() {
-
-
-  }
   async ngOnInit() {
     this.getDataService();
 
@@ -67,7 +63,7 @@ private getCharactersByQuery(): void{
 private getDataService(pPage?: number): void{
 
 
-  this.pjService.getCharacter(this.filterapi,this.currentPage).subscribe((response: any) => {
+  this.pjService.getDataService(this.filterapi,this.currentPage).subscribe((response: any) => {
 
     this.arrPj = response.results;
     this.pageNumber = response.info['pages'];
