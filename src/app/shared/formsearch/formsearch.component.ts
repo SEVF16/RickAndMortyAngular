@@ -20,7 +20,9 @@ export class FormsearchComponent implements OnInit {
     //console.log(value);
 
     let navigationExtr: NavigationExtras = {
-      queryParams:{q : value}
+      queryParams:{q : value},
+      queryParamsHandling: 'merge',
+      preserveFragment: true
     }
     if(value && value.length > 0){
       this.router.navigate(['/characters'], navigationExtr)

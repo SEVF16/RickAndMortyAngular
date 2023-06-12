@@ -3,7 +3,6 @@ import { ActivatedRoute, ChildActivationEnd, NavigationEnd, ParamMap, Params, Ro
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import { filter } from 'rxjs/operators';
 import { Character } from 'src/app/models/character.interface';
-import { Filter } from 'src/app/models/filter.interface';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class CharacterComponent implements OnInit, OnDestroy {
   arrPj: Character[] = [];
-  pjR: any[] = [];
+
   currentPage: number = 1;
   filterapi: {
     name?: '',
@@ -22,9 +21,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gender?: '',
   } = {};
   status: any = [];
-  id: number | null = null;
+
   query: string;
-  pages: [] = [];
+
   pageNumber: any;
   private routerSubscription: Subscription | undefined;
   private queryParamsSubscription: Subscription | undefined;
@@ -35,10 +34,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
     private actRouter: ActivatedRoute
   ) {
     this.query = '';
-    this.urlChanged();
+
   }
 
   ngOnInit() {
+    this.urlChanged();
     this.getDataCharacters();
   }
 
