@@ -13,6 +13,7 @@ import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacte
 import { SelectComponent } from './shared/select/select.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UrlValueNumberPipe } from './pipes/url-value-number.pipe';
+import { ModalComponent } from './shared/modal/modal.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { UrlValueNumberPipe } from './pipes/url-value-number.pipe';
     DetailcharacterComponent,
     SelectComponent,
     UrlValueNumberPipe,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

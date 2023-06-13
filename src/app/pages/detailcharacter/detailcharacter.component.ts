@@ -3,6 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Character } from 'src/app/models/character.interface';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import {faTv} from '@fortawesome/free-solid-svg-icons'
+import { ModalService } from 'src/app/services/modal.service';
+import { Episode } from 'src/app/models/episode.interface';
 @Component({
   selector: 'app-detailcharacter',
   templateUrl: './detailcharacter.component.html',
@@ -12,8 +14,9 @@ export class DetailcharacterComponent implements OnInit {
   arrPj: Character[] = []
   id: number ;
   tv = faTv;
-  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute) {
-
+  showPopup: boolean;
+  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute, protected popupService: ModalService ) {
+    this.showPopup = false;
     this.id = 0;
 
    }
@@ -40,11 +43,15 @@ export class DetailcharacterComponent implements OnInit {
     });
   }
 
-  protected episodeData(id:string): void{
+  mostrarInformacion(id:string) {
     const parts = id.split('/');
     const lastPart = parts[parts.length - 1];
-    //return lastPart.replace('/', '|');console.log(id);
-    console.log(lastPart);
+    const data = lastPart;
+    this.popupService.getDataEpisode(data).subscribe((datosEpisodio: Episode) => {
+      this.popupService.openModal(datosEpisodio);
+    });
   }
+
+
 
 }

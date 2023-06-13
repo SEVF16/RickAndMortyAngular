@@ -10,12 +10,15 @@
           {{pj.location['name']}}
         </p>
         <div class="flexy" *ngFor="let episode of pj.episode">
-          <div class="icon-container" (click)="episodeData(episode.slice(-2))">
+          <div class="icon-container" (click)="mostrarInformacion(episode.slice(-2))">
             <fa-icon [icon]="tv" class="icon-size" ></fa-icon>
             <span>{{ episode | urlValueNumber }}</span>
           </div>
         </div>
-
+        <app-modal>
+          <h2>Contenido del Modal</h2>
+          <p>Este es un modal pop-up.</p>
+        </app-modal>
       </div>
 
     </div>

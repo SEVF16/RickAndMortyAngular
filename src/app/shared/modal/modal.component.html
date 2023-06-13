@@ -1,0 +1,10 @@
+<div class="overlay" *ngIf="modalService.modalState$ | async">
+  <div class="modal">
+    <ng-content></ng-content>
+    <div *ngFor="let item of modalContent ">
+      <div>{{item.id}} :</div>
+    </div>
+
+    <button (click)="closeModal()">Cerrar</button>
+  </div>
+</div>
