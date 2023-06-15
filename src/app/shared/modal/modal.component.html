@@ -2,7 +2,12 @@
   <div class="modal">
     <ng-content></ng-content>
     <div *ngFor="let item of modalContent ">
-      <div>{{item.id}} :</div>
+      <div>Episode Name: {{item.name}}</div>
+      <div>Fecha de Lanzamiento: {{item.air_date}}</div>
+      <div>Episode: {{item.episode}}</div>
+      <div *ngFor="let name of namePj">
+        <div>{{name}}</div>
+      </div>
     </div>
 
     <button (click)="closeModal()">Cerrar</button>

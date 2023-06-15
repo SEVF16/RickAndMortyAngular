@@ -10,20 +10,29 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class ModalComponent implements OnInit {
   modalContent: Episode[];
+  namePj: string[] = [];
   idData: any;
   constructor(protected modalService: ModalService,  ) {
     this.modalContent = [];
    }
 
   ngOnInit(): void {
+    this.getData()
+  }
+
+  getData(){
     this.modalService.getDataPop().subscribe((datosEpisodio) => {
       this.modalContent = [datosEpisodio];
+      // Realiza cualquier acción adicional con los datos del episodio
+    });
+
+    this.modalService.getDataPopCharacter().subscribe((datosCharacter) => {
+      this.namePj = datosCharacter;
 
       // Realiza cualquier acción adicional con los datos del episodio
     });
+
   }
-
-
 
   closeModal() {
     this.modalService.closeModal();

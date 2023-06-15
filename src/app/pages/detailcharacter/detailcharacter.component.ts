@@ -12,6 +12,7 @@ import { Episode } from 'src/app/models/episode.interface';
 })
 export class DetailcharacterComponent implements OnInit {
   arrPj: Character[] = []
+  episode: Episode[] = []
   id: number ;
   tv = faTv;
   showPopup: boolean;
@@ -47,9 +48,13 @@ export class DetailcharacterComponent implements OnInit {
     const parts = id.split('/');
     const lastPart = parts[parts.length - 1];
     const data = lastPart;
-    this.popupService.getDataEpisode(data).subscribe((datosEpisodio: Episode) => {
-      this.popupService.openModal(datosEpisodio);
+    this.popupService.getDataEpisode(data).subscribe(([datosEpisodio, characters]) => {
+      const nombresPersonajes = characters.map((character: Character) => character.name);
+      //console.log(datosEpisodio); ambos muestran informacion
+      // console.log(nombresPersonajes);
+      this.popupService.openModal(datosEpisodio, nombresPersonajes);
     });
+
   }
 
 
