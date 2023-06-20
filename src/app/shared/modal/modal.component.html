@@ -5,11 +5,20 @@
       <div>Episode Name: {{item.name}}</div>
       <div>Fecha de Lanzamiento: {{item.air_date}}</div>
       <div>Episode: {{item.episode}}</div>
-      <div *ngFor="let name of namePj">
-        <div>{{name}}</div>
-      </div>
+      <table class="characters-table">
+        <thead>
+          <tr>
+            <th>Personajes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let name of namePj">
+            <td>{{ name }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <button (click)="closeModal()">Cerrar</button>
+    <button class="close-button" (click)="closeModal()">Cerrar</button>
   </div>
 </div>

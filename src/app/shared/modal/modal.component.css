@@ -8,10 +8,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
-  border: 1px solid black;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  scrollbar-width: thin;
+  scrollbar-color: #888888 #f2f2f2;
 }
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+.episode-info {
+  margin-bottom: 20px;
+}
+
+.characters-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.characters-table th,
+.characters-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.characters-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.characters-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.characters-table tbody tr:hover {
+  background-color: #eaeaea;
+}
+
+.close-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #ff5252;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #e60000;
+}
+
