@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { CharacterComponent } from './pages/character/character.component';
-import { LocationsComponent } from './pages/locations/locations.component';
-import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { FormsearchComponent } from './shared/formsearch/formsearch.component';
 import { DetailcharacterComponent } from './pages/detailcharacter/detailcharacter.component';
 import { SelectComponent } from './shared/select/select.component';
@@ -22,8 +20,6 @@ import { ModalComponent } from './shared/modal/modal.component';
     HeaderComponent,
     MainComponent,
     CharacterComponent,
-    LocationsComponent,
-    EpisodesComponent,
     FormsearchComponent,
     DetailcharacterComponent,
     SelectComponent,

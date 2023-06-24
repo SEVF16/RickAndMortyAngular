@@ -23,7 +23,7 @@
       </div>
       <!-- Post Content-->
       <div class="post-content">
-        <div class="category">{{personaje.species}}</div>
+        <div  class="category" [ngClass]="{'alive': personaje.status === 'Alive', 'dead': personaje.status === 'Dead', 'unknown': personaje.status === 'Unknown'}">{{personaje.species}}</div>
 
       </div>
     </div>
