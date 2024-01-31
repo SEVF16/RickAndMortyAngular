@@ -46,7 +46,7 @@ export class CharacterServiceService {
     return this.http.get<Character[]>(urlBase, { params }).pipe(
       switchMap((response: any) => {
         const totalPages = response.info.pages;
-        pPage = Math.min(pPage, totalPages); // Asigna el valor mínimo entre pPage y totalPages
+        pPage = Math.min(pPage, totalPages);
 
         params = params.set('page', pPage.toString());
         return this.http.get<Character[]>(urlBase, { params });
@@ -58,7 +58,7 @@ export class CharacterServiceService {
 
 
   getCharacterId(id:number): Observable<Character>{
-    //console.log(this.htpp.get<Character[]>(`${this.url}/${id}`));
+
     return this.http.get<Character>(`${this.url}/${id}`)
   }
 

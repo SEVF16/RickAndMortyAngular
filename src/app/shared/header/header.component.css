@@ -38,5 +38,48 @@ div.nav div:hover{
   transition: .3s;
 }
 
+@media only screen and (max-width: 600px) {
+
+
+  div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0.1px 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .item {
+    padding-top: 10px;
+  }
+
+  div > img {
+    width: 80px;
+    height: 80px;
+  }
+
+  div.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  div.nav div {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  div.nav div:hover {
+    color: rgb(209, 209, 209);
+    transition: 0.3s;
+  }
+
+}
+
 
 

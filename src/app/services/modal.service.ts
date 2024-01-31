@@ -25,7 +25,7 @@ export class ModalService {
       switchMap((episode: Episode) => {
         return this.getCharacterData(episode).pipe(
           map((characters: Character[]) => {
-            return [episode, characters] as [Episode, Character[]]; // Asegura el tipo de retorno como [Episode, Character[]]
+            return [episode, characters] as [Episode, Character[]];
           })
         );
       })

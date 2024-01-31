@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Character } from 'src/app/models/character.interface';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
-import {faTv} from '@fortawesome/free-solid-svg-icons'
+import {faTv, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { ModalService } from 'src/app/services/modal.service';
 import { Episode } from 'src/app/models/episode.interface';
 @Component({
@@ -15,8 +16,9 @@ export class DetailcharacterComponent implements OnInit {
   episode: Episode[] = []
   id: number ;
   tv = faTv;
+  back = faArrowLeft;
   showPopup: boolean;
-  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute, protected popupService: ModalService ) {
+  constructor(private pjService: CharacterServiceService, private activateRoute:  ActivatedRoute, protected popupService: ModalService, private location: Location ) {
     this.showPopup = false;
     this.id = 0;
 
@@ -26,6 +28,10 @@ export class DetailcharacterComponent implements OnInit {
     this.getParam()
     this.getDetailPj()
 
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   private getDetailPj(): void{
@@ -50,8 +56,6 @@ export class DetailcharacterComponent implements OnInit {
     const data = lastPart;
     this.popupService.getDataEpisode(data).subscribe(([datosEpisodio, characters]) => {
       const nombresPersonajes = characters.map((character: Character) => character.name);
-      //console.log(datosEpisodio); ambos muestran informacion
-      // console.log(nombresPersonajes);
       this.popupService.openModal(datosEpisodio, nombresPersonajes);
     });
 

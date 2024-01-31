@@ -23,13 +23,13 @@ export class ModalComponent implements OnInit {
   getData(){
     this.modalService.getDataPop().subscribe((datosEpisodio) => {
       this.modalContent = [datosEpisodio];
-      // Realiza cualquier acción adicional con los datos del episodio
+
     });
 
     this.modalService.getDataPopCharacter().subscribe((datosCharacter) => {
       this.namePj = datosCharacter;
 
-      // Realiza cualquier acción adicional con los datos del episodio
+
     });
 
   }

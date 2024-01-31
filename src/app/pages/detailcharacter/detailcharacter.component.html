@@ -1,25 +1,29 @@
  <section>
-    <div data-pj-detail *ngFor="let pj of arrPj">
-        <div class='img'>
-          <img [src]="pj.image" />
-        </div>
-      <div class="product-details">
-        <h2>{{pj.name}}</h2>
-        <p>{{pj.species}}</p>
-        <p>
-          {{pj.location['name']}}
-        </p>
-        <div class="flexy" *ngFor="let episode of pj.episode">
-          <div class="icon-container" (click)="mostrarInformacion(episode.slice(-2))">
-            <fa-icon [icon]="tv" class="icon-size" ></fa-icon>
-            <span>{{ episode | urlValueNumber }}</span>
-          </div>
-        </div>
-        <app-modal>
-          <h2>Informacion del Episodio</h2>
-        </app-modal>
+  <div data-pj-detail *ngFor="let pj of arrPj">
+      <div class='img'>
+        <img [src]="pj.image" />
       </div>
-
+    <div class="product-details">
+      <h2>{{pj.name}}</h2>
+      <p>{{pj.species}}</p>
+      <p>
+        {{pj.location['name']}}
+      </p>
+      <div class="flexy" *ngFor="let episode of pj.episode">
+        <div class="icon-container" (click)="mostrarInformacion(episode.slice(-2))">
+          <fa-icon [icon]="tv" class="icon-size" ></fa-icon>
+          <span>{{ episode | urlValueNumber }}</span>
+        </div>
+      </div>
+      <app-modal>
+        <h2>Informacion del Episodio</h2>
+      </app-modal>
     </div>
+
+  </div>
+
+  <div class="back-button" (click)="goBack()">
+    <fa-icon [icon]="back" class="icon-size"></fa-icon>
+  </div>
 
 </section>

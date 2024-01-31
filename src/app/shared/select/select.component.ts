@@ -16,12 +16,12 @@ export class SelectComponent implements OnInit {
 
     this.pjService.getFilters().pipe(
       map((response: any) => {
-        // Obtener valores únicos de status, species y gender
+
         const statusValues = ['All', ...new Set(response.results.map((character: any) => character.status))];
         const speciesValues = ['All', ...new Set(response.results.map((character: any) => character.species))];
         const genderValues = ['All', ...new Set(response.results.map((character: any) => character.gender))];
 
-        // Asignar valores a la propiedad filters
+
         this.filters.status = statusValues;
         this.filters.species = speciesValues;
         this.filters.gender = genderValues;
